@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Homework</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Homework 3</h1>
+    </header>
+
+    <main>
+        <article id="js-async">
+            <section>
+                <h2>1. JavaScript Async</h2>
+                <p>
+                    JavaScript Async refers to the ability to perform non-blocking operations.
+                    JavaScript is single-threaded, meaning it can only do one task at a time.
+                    However, using asynchronous code, JavaScript can handle multiple tasks simultaneously
+                    without waiting for each one to complete before moving to the next.
+                </p>
+                <p>Example:</p>
+                <pre><code>
+                console.log('First Test');
+                setTimeout(() => console.log('Second Test'), 2500);
+                console.log('Third Test');
+                // Output: 
+                // First
+                // Third
+                // Second (after 1 second)
+                </code></pre>
+            </section>
+        </article>
+
+        <article id="callback">
+            <section>
+                <h2>2. Callback</h2>
+                <p>
+                    A callback is a function passed as an argument to another function. It allows a function to execute
+                    after another function has finished executing, thus ensuring the proper order of operations. In
+                    other words it's
+                    a function which is to be executed after another function has finished execution.
+                </p>
+                <p>Example:</p>
+                <pre><code>
+                    function greet(name, callback) {
+                        console.log('Hello Profesor ' + name);
+                        callback();
+                    }
+                    
+                    function sayGoodbye() {
+                        console.log('Goodbye');
+                    }
+                    
+                    greet('Octavio', sayGoodbye);
+                    
+                    // Output:
+                    // Hello Profesor Octavio
+                    // Goodbye
+                </code></pre>
+            </section>
+        </article>
+
+        <article id="promise">
+            <section>
+                <h2>3. Promise</h2>
+                <p>
+                    A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+                    It provides a method to handle asynchronous code in a more readable and maintainable way.
+                </p>
+                <p>Example:</p>
+                <pre><code>
+                    let promise = new Promise((resolve, reject) => {
+                        let success = true;
+                        if (success) {
+                            resolve('Test Successful');
+                        } else {
+                            reject('Test Failed');
+                        }
+                    });
+                    
+                    promise.then(result => {
+                        console.log(result);
+                    }).catch(error => {
+                        console.log(error);
+                    });
+                    
+                    // Output: 
+                    // Test Successful
+
+                </code></pre>
+            </section>
+        </article>
+
+        <article id="async-await">
+            <section>
+                <h2>4. Async/Await</h2>
+                <p>
+                    Async/Await is a syntactical sugar built on top of Promises, providing a more straightforward way to
+                    work with asynchronous code. The async keyword makes a function return a Promise, while
+                    await pauses the function execution until the Promise is resolved.
+                </p>
+                <p>Example:</p>
+                <pre><code>
+                    async function fetchData() {
+                        try {
+                            let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+                            let data = await response.json();
+                            console.log(data);
+                        } catch (error) {
+                            console.log('Error:', error);
+                        }
+                    }
+                    
+                    fetchData();
+                    
+                    // Output:
+                    //{
+                    //  "userId": 1,
+                    //  "id": 1,
+                    //  "title": "delectus aut autem",
+                    //  "completed": false
+                    //}
+                                    
+
+fetchData();
+                </code></pre>
+            </section>
+        </article>
+
+        <article id="event-loop">
+            <section>
+                <h2>5. Event Loop</h2>
+                <p>
+                    The Event Loop is a mechanism that allows JavaScript to perform non-blocking operations by
+                    offloading operations to the system kernel whenever possible. The Event Loop continuously checks the
+                    call stack and the callback queue, executing tasks from the queue after the call stack is empty.
+                </p>
+                <p>Example:</p>
+                <pre><code>
+console.log('Start');
+
+setTimeout(() => {
+    console.log('This runs last');
+}, 0);
+
+console.log('End');
+
+// Output:
+// Start
+// End
+// This runs last
+                </code></pre>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2024 JavaScript Async Concepts Blog</p>
+    </footer>
+</body>
+
+</html>
