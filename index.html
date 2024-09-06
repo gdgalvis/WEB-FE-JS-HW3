@@ -18,7 +18,7 @@
             <section>
                 <h2>1. JavaScript Async</h2>
                 <p>
-                    JavaScript Async refers to the ability to perform non-blocking operations.
+                    JavaScript Async refers to the ability to perform non-blocking operations. Normally
                     JavaScript is single-threaded, meaning it can only do one task at a time.
                     However, using asynchronous code, JavaScript can handle multiple tasks simultaneously
                     without waiting for each one to complete before moving to the next.
@@ -70,7 +70,8 @@
                 <h2>3. Promise</h2>
                 <p>
                     A Promise is an object representing the eventual completion or failure of an asynchronous operation.
-                    It provides a method to handle asynchronous code in a more readable and maintainable way.
+                    It provides a method to handle asynchronous code in a more readable and maintainable way because
+                    it's a proxy for a value not necessarily known when the promise is created.
                 </p>
                 <p>Example:</p>
                 <pre><code>
@@ -100,9 +101,12 @@
             <section>
                 <h2>4. Async/Await</h2>
                 <p>
-                    Async/Await is a syntactical sugar built on top of Promises, providing a more straightforward way to
-                    work with asynchronous code. The async keyword makes a function return a Promise, while
-                    await pauses the function execution until the Promise is resolved.
+                    An async function is a function that always returns a Promise, regardless of what you explicitly return inside the function. 
+                </p>
+                
+                <p>
+                    The await keyword can only be used inside async functions.
+                    It pauses the execution of the async function until the promise is resolved or rejected.
                 </p>
                 <p>Example:</p>
                 <pre><code>
@@ -137,30 +141,34 @@ fetchData();
                 <h2>5. Event Loop</h2>
                 <p>
                     The Event Loop is a mechanism that allows JavaScript to perform non-blocking operations by
-                    offloading operations to the system kernel whenever possible. The Event Loop continuously checks the
-                    call stack and the callback queue, executing tasks from the queue after the call stack is empty.
+                    offloading operations to the system kernel whenever possible. Basically, it check the call stack,
+                    basically a queue,
+                    and pulls stuff out to place it onto the function execution stack whenever the function stack
+                    becomes empty.
+                    This is how JavaScript gives us an illusion of being multithreaded even though it is
+                    single-threaded.
                 </p>
                 <p>Example:</p>
                 <pre><code>
-console.log('Start');
+                console.log('Start');
 
-setTimeout(() => {
-    console.log('This runs last');
-}, 0);
+                setTimeout(() => {
+                    console.log('This runs last');
+                }, 0);
 
-console.log('End');
+                console.log('End');
 
-// Output:
-// Start
-// End
-// This runs last
+                // Output:
+                // Start
+                // End
+                // This runs last
                 </code></pre>
             </section>
         </article>
     </main>
 
     <footer>
-        <p>© 2024 JavaScript Async Concepts Blog</p>
+        <p>© Homework Concepts Blog</p>
     </footer>
 </body>
 
